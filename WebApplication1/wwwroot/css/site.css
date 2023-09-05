@@ -3,6 +3,7 @@ html {
 }
 body {
    color:white;
+   height:100vh;
 }
 @media (min-width: 768px) {
   html {
