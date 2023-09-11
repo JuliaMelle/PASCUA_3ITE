@@ -1,0 +1,68 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    string FirstName = "Gabriel ";
+    string LastName = "Montano ";
+    string Email = "gdmontano@ust.edu.ph";
+
+
+
+    int atIndex = Email.IndexOf('@');
+    string username = Email.Substring(0, atIndex);
+    string domain = Email.Substring(atIndex + 1);
+
+
+
+    Boolean IsTenured = true;
+    double SalaryPerHour = 400;
+  
+
+
+    if (IsTenured == true){
+        double salaryPerDay = (SalaryPerHour * 8)+500;
+        double salaryPerMonth = (salaryPerDay * 30)+500;
+    }else{
+        double salaryPerDay = (SalaryPerHour * 8);
+        double salaryPerMonth = (salaryPerDay * 30);
+    }
+
+    DateTime birthday = new DateTime(1990, 5, 15); // Replace with the actual birthdate
+    DateTime date = DateTime.Now;
+
+    int age = CalculateAge(birthday);
+    // Displaying the birthday
+
+    // Function to calculate age based on a birthday
+     int CalculateAge(DateTime birthdate)
+    {
+        DateTime currentDate = DateTime.Now;
+        int age = currentDate.Year - birthdate.Year;
+
+        // Check if the birthday has occurred this year already
+        if (birthdate.Date > currentDate.AddYears(-age))
+        {
+            age--; // Decrement age if the birthday hasn't occurred yet this year
+        }
+
+        return age;
+    }
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    Hint: get the current date and subtract to birthday to compute the age.<br>
+    A. Sample output:    <br> 
+    I'm @FirstName @LastName and I'm  @age yrs. old<br>
+    <br> 
+    Hint: use string function to extract the domain and username from email.<br>
+    B. Sample output:    <br>
+    Email: @Email<br>
+    Domain: @domain<br>
+    Username: @username<br> 
+    <br> <br>
+    @{
+
+    }
+    
+    <br>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>

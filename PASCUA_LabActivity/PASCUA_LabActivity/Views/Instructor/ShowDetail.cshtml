@@ -1,0 +1,42 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Instructor;
+
+<h1>Instructor Details</h1>
+
+<table class="table table-warning table-striped">
+    <tr>
+        <th>Id</th>
+        <td>@Model.Id</td>
+    </tr>
+    <tr>
+        <th>Last Name</th>
+        <td>@Model.LastName</td>
+    </tr>
+    <tr>
+        <th>First Name</th>
+        <td>@Model.FirstName</td>
+    </tr>
+    <tr>
+        <th>Status</th>
+        
+        
+                    <td>
+                       @(Model.IsTenured ? "Permanent":"Probationary")
+                    </td>
+             
+    
+        
+
+    </tr>
+    <tr>
+        <th>Rank</th>
+        <td>@Model.Rank</td>
+    </tr>
+    <tr>
+        <th>Hiring Date</th>
+        <td>@Model.HiringDate</td>
+    </tr>
+
+</table>

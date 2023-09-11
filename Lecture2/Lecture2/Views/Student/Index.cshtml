@@ -1,0 +1,50 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    int num =-2;
+    //var ano = "what the heck";
+}
+@if(num <0){
+    <h2 class="text-danger" >Num is a negative number </h2>
+
+
+}else{
+    <h2> Positive Number</h2>
+}
+@*@if(IsTenured){
+    <h2>Permanent</h2>
+}else{
+    <h2>Probationary</h2>
+}*@
+@*<h2> @ano.Length(); </h2>
+<h2> @ano.Substring(6,4); </h2>*@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Bday</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">@ViewBag.student.Id</th>
+            <td>@ViewBag.student.FirstName</td>
+            <td>@ViewBag.student.LastName</td>
+            <td>@ViewBag.student.Birthday</td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td colspan="2"></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
