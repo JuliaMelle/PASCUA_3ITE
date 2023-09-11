@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    DateTime date = DateTime.Now;
+
+    // Format the date as "MONTH DAY YEAR"
+    //string formattedDate = date.ToString("MMMM dd yyyy");
+    string formattedDate = date.ToString("dddd d, MMMM");
+}
+
+
+<html>
+<head>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+ 
+</head>
+<body class="bg-dark">
+   
+        <div class="text-center" >
+            <h1 class="display-4">Aloha</h1>
+        <p>@date</p> <br>
+        @{
+            if (date.Hour < 12)
+            {
+                <p>Time to conquer the day, early warrior! <br> It is morning on @formattedDate</p>
+                <img src="~/images/morning.jpg" width="20%" style="border-radius:50%" alt="morning">
+
+            }
+            else if (date.Hour >= 12 && date.Hour < 18) 
+            {
+                <p>Afterday vibes are here! <br> It is afternoon on @formattedDate</p>
+                <img src="~/images/afternoon.jpg" width="20%" style="border-radius:50%" alt="afternoon">
+            }
+            else
+            {
+                <p>The nocturnal adventure begins! <br> It is night on @formattedDate</p>
+                <img src="~/images/night.jpg" width="20%" style="border-radius:50%" alt="night">
+                
+            }
+        } 
+    
+        <asp:Label ID="lblMessage" runat="server" Text="Hello World" CssClass="my-class" />
+  
+
+</div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+ </body>
+</html>
+
