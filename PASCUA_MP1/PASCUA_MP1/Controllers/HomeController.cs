@@ -30,7 +30,10 @@ namespace PASCUA_MP1.Controllers
         {
             return View(EmployeeList) ;
         }
-
+        public ActionResult Privacy()
+        {
+            return View();
+        }
         // GET: EmployeeController/Details/5
         public ActionResult Details(int id)
         {
