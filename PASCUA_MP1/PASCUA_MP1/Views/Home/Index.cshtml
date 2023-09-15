@@ -1,4 +1,8 @@
-﻿@{
+﻿@model IEnumerable<Employee>;
+@{
+    
+
+
     ViewData["Title"] = "Home Page";
     string FirstName = "Gabriel ";
     string LastName = "Montano ";
@@ -14,17 +18,18 @@
 
     Boolean IsTenured = true;
     double SalaryPerHour = 400;
-  
+    double salaryPerDay = 0;
+    double salaryPerMonth = 0;
 
 
     if (IsTenured == true){
-        double salaryPerDay = (SalaryPerHour * 8)+500;
-        double salaryPerMonth = (salaryPerDay * 30)+500;
+         salaryPerDay = (SalaryPerHour * 8)+500;
+         salaryPerMonth = (salaryPerDay * 30)+500;
     }else{
-        double salaryPerDay = (SalaryPerHour * 8);
-        double salaryPerMonth = (salaryPerDay * 30);
+         salaryPerDay = (SalaryPerHour * 8);
+         salaryPerMonth = (salaryPerDay * 30);
     }
-
+    
     DateTime birthday = new DateTime(1990, 5, 15); // Replace with the actual birthdate
     DateTime date = DateTime.Now;
 
@@ -49,20 +54,60 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    Hint: get the current date and subtract to birthday to compute the age.<br>
-    A. Sample output:    <br> 
+    <b>
+        Hint: get the current date and subtract to birthday to compute the age.<br>
+        A. Sample output:
+    </b>    <br>
     I'm @FirstName @LastName and I'm  @age yrs. old<br>
     <br> 
-    Hint: use string function to extract the domain and username from email.<br>
-    B. Sample output:    <br>
+ <b>   Hint: use string function to extract the domain and username from email.<br>
+        B. Sample output:
+    </b>   <br>
     Email: @Email<br>
     Domain: @domain<br>
     Username: @username<br> 
     <br> <br>
-    @{
 
-    }
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Status</th>
+                <th scope="col">Daily Salary</th>
+                <th scope="col">Monthly Salary</th>
+            </tr>
+        </thead>
+        <tbody>
     
+            @if (Model != null)
+            {
+                foreach (var employee in Model)
+                {
+                    <tr>
+                        <td>@employee.Id</td>
+                        <td>@employee.FirstName @employee.LastName</td>
+                        <td>@employee.Email</td>
+                        <td> @employee.IsTenured</td>
+                        <td> @salaryPerDay</td>
+                        <td> @salaryPerMonth</td>
+              
+
+
+
+                    </tr>
+                }
+            }
+            else
+            {
+                <p>No data available</p>
+            }
+                
+   
+        </tbody>
+    </table>
+
+
     <br>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>

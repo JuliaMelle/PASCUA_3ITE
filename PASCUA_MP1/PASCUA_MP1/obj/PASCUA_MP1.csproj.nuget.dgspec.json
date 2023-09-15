@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\julia\\source\\repos\\PASCUA_MP1\\PASCUA_MP1\\PASCUA_MP1.csproj": {}
+    "C:\\Users\\julia\\source\\repos\\PASCUA_3ITE\\PASCUA_MP1\\PASCUA_MP1\\PASCUA_MP1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\julia\\source\\repos\\PASCUA_MP1\\PASCUA_MP1\\PASCUA_MP1.csproj": {
+    "C:\\Users\\julia\\source\\repos\\PASCUA_3ITE\\PASCUA_MP1\\PASCUA_MP1\\PASCUA_MP1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\julia\\source\\repos\\PASCUA_MP1\\PASCUA_MP1\\PASCUA_MP1.csproj",
+        "projectUniqueName": "C:\\Users\\julia\\source\\repos\\PASCUA_3ITE\\PASCUA_MP1\\PASCUA_MP1\\PASCUA_MP1.csproj",
         "projectName": "PASCUA_MP1",
-        "projectPath": "C:\\Users\\julia\\source\\repos\\PASCUA_MP1\\PASCUA_MP1\\PASCUA_MP1.csproj",
+        "projectPath": "C:\\Users\\julia\\source\\repos\\PASCUA_3ITE\\PASCUA_MP1\\PASCUA_MP1\\PASCUA_MP1.csproj",
         "packagesPath": "C:\\Users\\julia\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\julia\\source\\repos\\PASCUA_MP1\\PASCUA_MP1\\obj\\",
+        "outputPath": "C:\\Users\\julia\\source\\repos\\PASCUA_3ITE\\PASCUA_MP1\\PASCUA_MP1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\julia\\AppData\\Roaming\\NuGet\\NuGet.Config",

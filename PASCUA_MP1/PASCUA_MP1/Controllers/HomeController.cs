@@ -1,32 +1,103 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
 using PASCUA_MP1.Models;
-using System.Diagnostics;
+
 
 namespace PASCUA_MP1.Controllers
 {
+
+
+  
+
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+   
+        List<Employee> EmployeeList = new List<Employee>
+            {
+                new Employee()
+                {
+                    Id= 1,FirstName = "Gabriel ",LastName = "Montano", Email = "gdmontanoust.edu.ph" , IsTenured=true,
+                },
+                new Employee()
+                {
+                      Id= 2,FirstName = "Zyx ",LastName = "Montano", Email = "gdmontanoust.edu.ph",IsTenured=false
+                }
+            };
 
-        public HomeController(ILogger<HomeController> logger)
+        // GET: EmployeeController
+        public ActionResult Index()
         {
-            _logger = logger;
+            return View(EmployeeList) ;
         }
 
-        public IActionResult Index()
+        // GET: EmployeeController/Details/5
+        public ActionResult Details(int id)
         {
             return View();
         }
 
-        public IActionResult Privacy()
+        // GET: EmployeeController/Create
+        public ActionResult Create()
         {
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        // POST: EmployeeController/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(IFormCollection collection)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            try
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: EmployeeController/Edit/5
+        public ActionResult Edit(int id)
+        {
+            return View();
+        }
+
+        // POST: EmployeeController/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, IFormCollection collection)
+        {
+            try
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: EmployeeController/Delete/5
+        public ActionResult Delete(int id)
+        {
+            return View();
+        }
+
+        // POST: EmployeeController/Delete/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(int id, IFormCollection collection)
+        {
+            try
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
         }
     }
 }

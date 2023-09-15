@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PASCUA_LabActivity.Models;
+using PASCUA_MP1.Models;
 
 
 namespace PASCUA_LabActivity.Controllers
