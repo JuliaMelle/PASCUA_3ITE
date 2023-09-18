@@ -22,7 +22,49 @@ namespace PASCUA_LabActivity.Controllers
             
             return View(InstructorList);
         }
+        [HttpGet]
+        public IActionResult AddInstructor()
+        {
 
+            return View();
+        }
+        [HttpPost]
+        public IActionResult AddInstructor(Instructor newInstructor)
+        {
+            //Instructor Instructor = new Instructor();
+            InstructorList.Add(newInstructor);
+            return View("Index", InstructorList);
+        }
+        //=== EDIT 
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            Instructor? Instructor = InstructorList.FirstOrDefault(st => st.Id == id);
+
+            if (Instructor != null) // verify if the Instructor exist
+                return View(Instructor);
+
+            return NotFound();
+        }
+        [HttpPost]
+        public IActionResult Edit(Instructor InstructorChange)
+        {
+            Instructor? Instructor = InstructorList.FirstOrDefault(st => st.Id == InstructorChange.Id);
+            if (Instructor != null)
+            {
+                Instructor.Id = InstructorChange.Id;
+                Instructor.FirstName = InstructorChange.FirstName;
+                Instructor.LastName = InstructorChange.LastName;
+                Instructor.IsTenured = InstructorChange.IsTenured;
+                Instructor.Rank = InstructorChange.Rank;
+                Instructor.HiringDate = InstructorChange.HiringDate;
+
+            }
+            return View("Index", InstructorList);
+        }
+
+
+        //==================================
         public IActionResult ShowDetail(int id)
         {
             //hehe

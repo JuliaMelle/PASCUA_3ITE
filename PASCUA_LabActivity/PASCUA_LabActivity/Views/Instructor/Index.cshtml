@@ -2,9 +2,11 @@
 @model IEnumerable<Instructor>;
 
 <h1>Instructor List</h1>
+<div class="d-flex justify-content-center">
+    <a asp-action="AddInstructor" class=" d-flex justify-content-center w-75" style="text-decoration:none ; color:black!important"><button type="button" class="btn btn-info text-black m-2 w-75">ADD</button></a>
+</div>
 
-
-<table  class="table table-warning table-striped">
+<table  class="table table-info table-striped">
             
         <tr>
             <th colspan="6">Instructor</th>
@@ -17,8 +19,9 @@
             <td>Hiring Date</td>
         <td>
         </td>
-           
-            
+
+        <td>
+        </td>
         </tr>
     @foreach (var instructor in Model)
     {
@@ -27,8 +30,10 @@
             <td>  @(instructor.IsTenured ? "Permanent" : "Probationary")</td>
             <td>@instructor.Rank</td>
             <td>@instructor.HiringDate</td>
-            <td><a asp-action="ShowDetail" asp-route-id="@instructor.Id">Show Details</a></td>
-            
+            <td><a asp-action="ShowDetail" asp-route-id="@instructor.Id" style=" text-decoration:none ; color:black!important"> <button type="button" class="btn btn-info text-black m-2 w-75"> Show Details </button></a></td>
+
+            <td><a asp-action="Edit" asp-route-id="@instructor.Id" style=" text-decoration:none ; color:black!important"> <button type="button" class="btn btn-info text-black m-2 w-75"> Edit </button></a></td>
+
         </tr>
     }
 </table>

@@ -26,6 +26,49 @@ namespace PASCUA_LabActivity.Controllers
             
             return View(StudentList);
         }
+        [HttpGet]
+        public IActionResult AddStudent()
+        {
+
+            return View();
+        }
+        [HttpPost]
+        public IActionResult AddStudent(Student newStudent)
+        {
+            //Student student = new Student();
+           StudentList.Add(newStudent);
+            return View("Index", StudentList);
+        }
+        //=== EDIT 
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            Student? student = StudentList.FirstOrDefault(st=>st.Id == id);
+
+            if(student !=null) // verify if the student exist
+            return View(student);
+
+            return NotFound();
+        }
+        [HttpPost]
+        public IActionResult Edit(Student studentChange)
+        {
+            Student? student = StudentList.FirstOrDefault(st => st.Id == studentChange.Id);
+            if(student != null)
+            {
+                student.Id = studentChange.Id;
+                student.FirstName = studentChange.FirstName;
+                student.LastName=studentChange.LastName;
+                student.Course = studentChange.Course;
+                student.AdmissionDate = studentChange.AdmissionDate;    
+                student.Email = studentChange.Email;
+
+            }
+            return View("Index", StudentList);
+        }
+
+
+        //==================================
 
         public IActionResult ShowDetail(int id)
         {
