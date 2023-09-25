@@ -1,31 +1,22 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PASCUA_LabActivity.Models;
-
+using PASCUA_LabActivity.Services;
 
 namespace PASCUA_LabActivity.Controllers
 {
     public class StudentController : Controller
     {
-        List<Student> StudentList = new List<Student>
-            {
-                new Student()
-                {
-                    Id= 1,FirstName = "Julia",LastName = "Pascua", Course = Course.BSIT, AdmissionDate = DateTime.Parse("2022-07-19"), GPA = 1.0, Email = "jm@gmail.com"
-                },
-                new Student()
-                {
-                    Id= 2,FirstName = "Jul",LastName = "Toledo", Course = Course.BSIS, AdmissionDate = DateTime.Parse("2022-12-05"), GPA = 1, Email = "jayemp@gmail.com"
-                },
-                new Student()
-                {
-                    Id= 3,FirstName = "Alexa",LastName = "Chua", Course = Course.BSCS, AdmissionDate = DateTime.Parse("2020-02-15"), GPA = 1.5, Email = "ac@gmail.com"
-                }
-            };
+        private readonly IMyFakeDataService _fakeData;
+        public StudentController(IMyFakeDataService fakeData)
+        {
+            _fakeData = fakeData;
+        }
         public IActionResult Index()
         {
             
-            return View(StudentList);
+            return View(_fakeData.StudentList);
         }
+
         [HttpGet]
         public IActionResult AddStudent()
         {
@@ -36,14 +27,14 @@ namespace PASCUA_LabActivity.Controllers
         public IActionResult AddStudent(Student newStudent)
         {
             //Student student = new Student();
-           StudentList.Add(newStudent);
-            return View("Index", StudentList);
+            _fakeData.StudentList.Add(newStudent);
+            return RedirectToAction("Index", _fakeData.StudentList);
         }
         //=== EDIT 
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            Student? student = StudentList.FirstOrDefault(st=>st.Id == id);
+            Student? student = _fakeData.StudentList.FirstOrDefault(st=>st.Id == id);
 
             if(student !=null) // verify if the student exist
             return View(student);
@@ -53,7 +44,7 @@ namespace PASCUA_LabActivity.Controllers
         [HttpPost]
         public IActionResult Edit(Student studentChange)
         {
-            Student? student = StudentList.FirstOrDefault(st => st.Id == studentChange.Id);
+            Student? student = _fakeData.StudentList.FirstOrDefault(st => st.Id == studentChange.Id);
             if(student != null)
             {
                 student.Id = studentChange.Id;
@@ -64,7 +55,7 @@ namespace PASCUA_LabActivity.Controllers
                 student.Email = studentChange.Email;
 
             }
-            return View("Index", StudentList);
+            return RedirectToAction("Index", _fakeData.StudentList);
         }
 
 
@@ -73,10 +64,22 @@ namespace PASCUA_LabActivity.Controllers
         public IActionResult ShowDetail(int id)
         {
             //Search for the student whose id matches the given id
-            Student? student = StudentList.FirstOrDefault(st => st.Id == id);
+            Student? student = _fakeData.StudentList.FirstOrDefault(st => st.Id == id);
             
             if (student != null)//was an student found?
                 return View(student);
+
+            return NotFound();
+        }
+
+        //==================================
+        [HttpGet]
+        public IActionResult DeleteStudent(int id)
+        {
+            Student? student = _fakeData.StudentList.FirstOrDefault(st => st.Id == id);
+            _fakeData.StudentList.Remove(student);
+            if (student != null)//was an student found?
+                return RedirectToAction("Index", _fakeData.StudentList);
 
             return NotFound();
         }

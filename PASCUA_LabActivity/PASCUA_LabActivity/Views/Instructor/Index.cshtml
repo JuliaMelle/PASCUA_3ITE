@@ -33,7 +33,59 @@
             <td><a asp-action="ShowDetail" asp-route-id="@instructor.Id" style=" text-decoration:none ; color:black!important"> <button type="button" class="btn btn-info text-black m-2 w-75"> Show Details </button></a></td>
 
             <td><a asp-action="Edit" asp-route-id="@instructor.Id" style=" text-decoration:none ; color:black!important"> <button type="button" class="btn btn-info text-black m-2 w-75"> Edit </button></a></td>
+            <td><button type="button" class="btn btn-info text-black m-2 w-75" data-bs-toggle="modal" data-bs-target="#exampleModal"> Delete </button></td>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel"> Are you Sure you want to <b class="text-danger">  DELETE </b>?</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        
+                            <form asp-action="DeleteStudent" method="post">
+                                <div class="form-group">
+                                    <label asp-for="@instructor.Id">ID</label>
+                                    <input asp-for="@instructor.Id" class="form-control" disabled />
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="@instructor.FirstName">First Name</label>
+                                    <input asp-for="@instructor.FirstName" class="form-control" disabled />
 
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for=" @instructor.LastName">Last Name</label>
+                                    <input asp-for=" @instructor.LastName" class="form-control" disabled />
+
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for=" @instructor.Rank">Course</label>
+                                    <input asp-for="    @instructor.Rank" class="form-control" disabled />
+                                 
+                                </div>
+                                <div class="form-group mt-3 mb-3">
+                                    <label asp-for="@instructor.IsTenured">Status: </label>
+                                    <b>  @(instructor.IsTenured ? "Permanent" : "Probationary")</b>
+                       
+
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for=" @instructor.HiringDate">Date Enrolled</label>
+                                    <input asp-for=" @instructor.HiringDate" class="form-control" disabled />
+
+                                </div>
+                            @*<button type="submit" class="btn btn-primary">Submit</button>*@
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <a asp-action="DeleteInstructor" asp-route-id="@instructor.Id" style=" text-decoration:none ; color:white!important" class=" w-100"> <button type="button" class="btn btn-danger text-white mt-2 w-100"> Delete </button></a>
+
+                            <button type="button" class="btn btn-secondary w-100" data-bs-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </tr>
     }
 </table>

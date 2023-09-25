@@ -36,5 +36,25 @@
     </tr>
 </table>
 
+@*<a asp-action="DeleteStudent" asp-route-id="@Model.Id" style=" text-decoration:none ; color:black!important"> <button type="button" class="btn btn-info text-black m-2 w-75"> Delete </button></a>*@
+<button type="button" class="btn btn-danger text-white mb-2 w-100" data-bs-toggle="modal" data-bs-target="#exampleModal"> Delete </button></td>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h1> Are you Sure?</h1>
 
-<a asp-action="Index"> <button type="button" class=" btn btn-warning">Back</button> </a>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <a asp-action="DeleteStudent" asp-route-id="@Model.Id" style=" text-decoration:none ; color:black!important"> <button type="button" class="btn btn-danger text-white m-2 w-75"> Delete </button></a>
+            </div>
+        </div>
+    </div>
+</div>
+<a asp-action="Index"> <button type="button" class="btn btn-secondary w-100">Back</button> </a>

@@ -1,27 +1,26 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PASCUA_LabActivity.Models;
 
-
+using PASCUA_LabActivity.Services;
 namespace PASCUA_LabActivity.Controllers
 {
     public class InstructorController : Controller
     {
-        List<Instructor> InstructorList = new List<Instructor>
-            {
-                new Instructor()
-                {
-                    Id= 1,FirstName = "Jm",LastName = "Pascua",IsTenured=true, Rank = Rank.instructor,HiringDate = DateTime.Parse("2022-07-19"),
-                },
-                new Instructor()
-                {
-                    Id= 2,FirstName = "Jul",LastName = "Toledo", IsTenured=true,  Rank = Rank.AssistantProfessor,HiringDate = DateTime.Parse("2022-12-05")
-                }
-            };
+        private readonly IMyFakeDataService _fakeData;
+        public InstructorController(IMyFakeDataService fakeData)
+        {
+            _fakeData = fakeData;
+        }
         public IActionResult Index()
         {
-            
-            return View(InstructorList);
+
+            return View(_fakeData.InstructorList);
         }
+        //public IActionResult Index()
+        //{
+            
+        //    return View(_fakeData.InstructorList);
+        //}
         [HttpGet]
         public IActionResult AddInstructor()
         {
@@ -32,14 +31,14 @@ namespace PASCUA_LabActivity.Controllers
         public IActionResult AddInstructor(Instructor newInstructor)
         {
             //Instructor Instructor = new Instructor();
-            InstructorList.Add(newInstructor);
-            return View("Index", InstructorList);
+            _fakeData.InstructorList.Add(newInstructor);
+            return View("Index", _fakeData.InstructorList);
         }
         //=== EDIT 
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            Instructor? Instructor = InstructorList.FirstOrDefault(st => st.Id == id);
+            Instructor? Instructor = _fakeData.InstructorList.FirstOrDefault(st => st.Id == id);
 
             if (Instructor != null) // verify if the Instructor exist
                 return View(Instructor);
@@ -49,7 +48,7 @@ namespace PASCUA_LabActivity.Controllers
         [HttpPost]
         public IActionResult Edit(Instructor InstructorChange)
         {
-            Instructor? Instructor = InstructorList.FirstOrDefault(st => st.Id == InstructorChange.Id);
+            Instructor? Instructor = _fakeData.InstructorList.FirstOrDefault(st => st.Id == InstructorChange.Id);
             if (Instructor != null)
             {
                 Instructor.Id = InstructorChange.Id;
@@ -60,7 +59,7 @@ namespace PASCUA_LabActivity.Controllers
                 Instructor.HiringDate = InstructorChange.HiringDate;
 
             }
-            return View("Index", InstructorList);
+            return View("Index", _fakeData.InstructorList);
         }
 
 
@@ -69,13 +68,23 @@ namespace PASCUA_LabActivity.Controllers
         {
             //hehe
             //Search for the Instructor whose id matches the given id
-            Instructor? Instructor = InstructorList.FirstOrDefault(st => st.Id == id);
+            Instructor? Instructor = _fakeData.InstructorList.FirstOrDefault(st => st.Id == id);
             
             if (Instructor != null)//was an Instructor found?
                 return View(Instructor);
 
             return NotFound();
         }
+        //================================
+        [HttpGet]
+        public IActionResult DeleteInstructor(int id)
+        {
+            Instructor? instructor = _fakeData.InstructorList.FirstOrDefault(st => st.Id == id);
+            _fakeData.InstructorList.Remove(instructor);
+            if (instructor != null)//was an instructor found?
+                return RedirectToAction("Index", _fakeData.InstructorList);
 
+            return NotFound();
+        }
     }
 }

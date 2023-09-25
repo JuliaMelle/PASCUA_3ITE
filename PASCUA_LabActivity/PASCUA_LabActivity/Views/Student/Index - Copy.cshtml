@@ -1,0 +1,90 @@
+﻿
+@model IEnumerable<Student>;
+
+<div>Student List</div>
+<div class="d-flex justify-content-center">
+    <a asp-action="AddStudent" class=" d-flex justify-content-center w-75" style="text-decoration:none ; color:black!important"><button type="button" class="btn btn-info text-black m-2 w-75">ADD</button></a>
+</div>
+
+<table  class="table table-info table-striped">
+            
+        <tr>
+            <th colspan="8">Student</th>
+        </tr>
+
+        <tr>
+            <td>Name</td>
+            <td>Course</td>
+            <td>Admission Date</td>
+            <td>Email</td>
+            <td>GPA</td>
+            <td>Details</td>
+        <td>Edit</td>
+                 <td>Delete</td>
+        </tr>
+    @foreach (var student in Model)
+    {
+        <tr>
+            <td>@student.FirstName @student.LastName</td>
+            <td>@student.Course</td>
+            <td>@student.AdmissionDate</td>
+            <td>@student.Email</td>
+            <td>@student.GPA</td>
+            <td><a asp-action="ShowDetail" asp-route-id="@student.Id" style=" text-decoration:none ; color:black!important"> <button type="button" class="btn btn-info text-black m-2 w-75"> Show Details </button></a></td>
+            <td><a asp-action="Edit" asp-route-id="@student.Id" style=" text-decoration:none ; color:black!important"> <button type="button" class="btn btn-info text-black m-2 w-75"> Edit </button></a></td>
+            <td>
+               
+                    <button type="button" class="btn btn-info text-black m-2 w-75"data-bs-toggle="modal" data-bs-target="#exampleModal"> Delete </button></td>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+                            <h1> Are you Sure?</h1>
+                            <form asp-action="DeleteStudent" method="post">
+                                <div class="form-group">
+                                    <label asp-for="@student.Id" >ID</label>
+                                    <input asp-for="@student.Id" class="form-control" disabled />
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="@student.FirstName">First Name</label>
+                                    <input asp-for="@student.FirstName" class="form-control" disabled />
+                              
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for=" @student.LastName">Last Name</label>
+                                    <input asp-for=" @student.LastName" class="form-control" disabled />
+                             
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for=" @student.Course">Course</label>
+                                    <select asp-for=" @student.Course" asp-items="Html.GetEnumSelectList(typeof(Course))" class="form-control" disabled></select>
+                                   
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for=" @student.Email">Email</label>
+                                    <input asp-for=" @student.Email" class="form-control" disabled />
+                                 
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for=" @student.AdmissionDate">Date Enrolled</label>
+                                    <input asp-for=" @student.AdmissionDate" class="form-control" disabled />
+                                   
+                                </div>
+                                @*<button type="submit" class="btn btn-primary">Submit</button>*@
+                            </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <a asp-action="DeleteStudent" asp-route-id="@student.Id" style=" text-decoration:none ; color:black!important"> <button type="button" class="btn btn-info text-black m-2 w-75"> Delete </button></a>
+      </div>
+    </div>
+  </div>
+</div>
+        </tr>
+    }
+</table>
