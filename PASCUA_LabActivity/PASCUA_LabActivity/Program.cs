@@ -1,12 +1,23 @@
+using Microsoft.EntityFrameworkCore;
+using PASCUA_LabActivity.Database;
 using PASCUA_LabActivity.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddSingleton<IMyFakeDataService, MyFakeDataService>();
+//builder.Services.AddSingleton<IMyFakeDataService, MyFakeDataService>();
+//builder.Services.AddControllersWithViews();
+// Add services to the container.
+//builder.Services.AddSingleton<IMyFakeDataService, MyFakeDataService>();
+//For database
+builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer
+(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+
+var context = app.Services.CreateScope().ServiceProvider.GetRequiredService<AppDbContext>();
+context.Database.EnsureCreated();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

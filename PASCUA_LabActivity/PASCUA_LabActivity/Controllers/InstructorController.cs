@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PASCUA_LabActivity.Database;
 using PASCUA_LabActivity.Models;
 
 using PASCUA_LabActivity.Services;
@@ -6,15 +7,16 @@ namespace PASCUA_LabActivity.Controllers
 {
     public class InstructorController : Controller
     {
-        private readonly IMyFakeDataService _fakeData;
-        public InstructorController(IMyFakeDataService fakeData)
-        {
-            _fakeData = fakeData;
-        }
-        public IActionResult Index()
+            private readonly AppDbContext _dbContext;
+            public InstructorController(AppDbContext dbContext)
+            {
+                _dbContext = dbContext;
+            }
+
+            public IActionResult Index()
         {
 
-            return View(_fakeData.InstructorList);
+            return View(_dbContext.Instructor);
         }
         //public IActionResult Index()
         //{
@@ -31,14 +33,14 @@ namespace PASCUA_LabActivity.Controllers
         public IActionResult AddInstructor(Instructor newInstructor)
         {
             //Instructor Instructor = new Instructor();
-            _fakeData.InstructorList.Add(newInstructor);
-            return View("Index", _fakeData.InstructorList);
+            _dbContext.Instructor.Add(newInstructor);
+            return View("Index",  _dbContext.Instructor);
         }
         //=== EDIT 
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            Instructor? Instructor = _fakeData.InstructorList.FirstOrDefault(st => st.Id == id);
+            Instructor? Instructor = _dbContext.Instructor.FirstOrDefault(st => st.Id == id);
 
             if (Instructor != null) // verify if the Instructor exist
                 return View(Instructor);
@@ -48,7 +50,7 @@ namespace PASCUA_LabActivity.Controllers
         [HttpPost]
         public IActionResult Edit(Instructor InstructorChange)
         {
-            Instructor? Instructor = _fakeData.InstructorList.FirstOrDefault(st => st.Id == InstructorChange.Id);
+            Instructor? Instructor =  _dbContext.Instructor.FirstOrDefault(st => st.Id == InstructorChange.Id);
             if (Instructor != null)
             {
                 Instructor.Id = InstructorChange.Id;
@@ -59,7 +61,7 @@ namespace PASCUA_LabActivity.Controllers
                 Instructor.HiringDate = InstructorChange.HiringDate;
 
             }
-            return View("Index", _fakeData.InstructorList);
+            return View("Index",  _dbContext.Instructor);
         }
 
 
@@ -68,7 +70,7 @@ namespace PASCUA_LabActivity.Controllers
         {
             //hehe
             //Search for the Instructor whose id matches the given id
-            Instructor? Instructor = _fakeData.InstructorList.FirstOrDefault(st => st.Id == id);
+            Instructor? Instructor =  _dbContext.Instructor.FirstOrDefault(st => st.Id == id);
             
             if (Instructor != null)//was an Instructor found?
                 return View(Instructor);
@@ -79,10 +81,10 @@ namespace PASCUA_LabActivity.Controllers
         [HttpGet]
         public IActionResult DeleteInstructor(int id)
         {
-            Instructor? instructor = _fakeData.InstructorList.FirstOrDefault(st => st.Id == id);
-            _fakeData.InstructorList.Remove(instructor);
+            Instructor? instructor =  _dbContext.Instructor.FirstOrDefault(st => st.Id == id);
+             _dbContext.Instructor.Remove(instructor);
             if (instructor != null)//was an instructor found?
-                return RedirectToAction("Index", _fakeData.InstructorList);
+                return RedirectToAction("Index",  _dbContext.Instructor);
 
             return NotFound();
         }
