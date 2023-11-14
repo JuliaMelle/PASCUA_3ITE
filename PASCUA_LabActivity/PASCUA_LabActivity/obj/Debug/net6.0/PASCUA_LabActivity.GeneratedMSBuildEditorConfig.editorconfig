@@ -15,6 +15,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\julia\source\repos\PASCUA_3ITE\PASCUA_LabActivity\PASCUA_LabActivity
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/julia/source/repos/PASCUA_3ITE/PASCUA_LabActivity/PASCUA_LabActivity/Views/Acc/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjXExvZ2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/julia/source/repos/PASCUA_3ITE/PASCUA_LabActivity/PASCUA_LabActivity/Views/Acc/RegisterView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjXFJlZ2lzdGVyVmlldy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/julia/source/repos/PASCUA_3ITE/PASCUA_LabActivity/PASCUA_LabActivity/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

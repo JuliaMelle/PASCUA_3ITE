@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\julia\\source\\repos\\Lecture2\\Lecture2\\Lecture2.csproj",
+      "projectUniqueName": "C:\\Users\\julia\\source\\repos\\PASCUA_3ITE\\Lecture2\\Lecture2\\Lecture2.csproj",
       "projectName": "Lecture2",
-      "projectPath": "C:\\Users\\julia\\source\\repos\\Lecture2\\Lecture2\\Lecture2.csproj",
+      "projectPath": "C:\\Users\\julia\\source\\repos\\PASCUA_3ITE\\Lecture2\\Lecture2\\Lecture2.csproj",
       "packagesPath": "C:\\Users\\julia\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\julia\\source\\repos\\Lecture2\\Lecture2\\obj\\",
+      "outputPath": "C:\\Users\\julia\\source\\repos\\PASCUA_3ITE\\Lecture2\\Lecture2\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\julia\\AppData\\Roaming\\NuGet\\NuGet.Config",

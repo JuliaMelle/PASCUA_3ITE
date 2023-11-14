@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PASCUA_LabActivity.Models;
 using System.Reflection.Emit;
-
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 namespace PASCUA_LabActivity.Database
 {
 
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<User>
     {
         public DbSet<Student> Student { get; set; }
         public DbSet<Instructor> Instructor { get; set; }

@@ -1,0 +1,51 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    @model RegisterViewModel;
+
+<h1>Create a new account</h1>
+<form asp-action="Register">
+    @* <div class="form-group" asp-validation-summary="All"></div> *@
+    <div class="form-group">
+        <label asp-for="UserName"></label>
+        <input asp-for="UserName" type="text" class="form-control">
+        <span asp-validation-for="UserName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="FirstName"></label>
+        <input asp-for="FirstName" type="text" class="form-control">
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="LastName"></label>
+        <input asp-for="LastName" type="text" class="form-control">
+        <span asp-validation-for="LastName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" type="text" class="form-control">
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Password"></label>
+        <input asp-for="Password" type="password" class="form-control">
+        <span asp-validation-for="Password" class="text-danger"></span>
+        <span class="text-danger" id="spanErr">@Html.ValidationMessage("regErr")</span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ConfirmPassword"></label>
+        <input asp-for="ConfirmPassword" type="password" class="form-control">
+        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+        <span class="text-danger" id="spanErr">@Html.ValidationMessage("regErr")</span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Phone"></label>
+        <input asp-for="Phone" type="text" class="form-control">
+        <span asp-validation-for="Phone" class="text-danger"></span>
+        <span class="text-danger" id="spanErr">@Html.ValidationMessage("regErr")</span>
+    </div>
+    <br />
+    <input type="submit" value="Create Account" class="btn btn-primary" />
+</form>
+}
