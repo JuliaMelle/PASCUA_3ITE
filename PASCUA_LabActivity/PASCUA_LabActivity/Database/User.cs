@@ -1,5 +1,6 @@
 ﻿using System;
     using Microsoft.AspNetCore.Identity;
+
 namespace PASCUA_LabActivity.Database
 {
     public class User : IdentityUser

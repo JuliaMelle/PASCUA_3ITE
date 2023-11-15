@@ -29,7 +29,7 @@ namespace PASCUA_LabActivity.Models
         [Required(ErrorMessage = "Email Address is required")]
         public string? Email { get; set; }
 
-        [RegularExpression("[0-9]{3}[0-9]{3}[0-9]{4}", ErrorMessage = "You must follow the format 000-000-0000")]
+        [RegularExpression("[0-9]{3}-[0-9]{3}-[0-9]{4}", ErrorMessage = "You must follow the format 000-000-0000")]
         [Display(Name = "Phone Number")]
         public string? Phone { get; set; }
     }

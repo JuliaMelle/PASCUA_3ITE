@@ -106,3 +106,11 @@ C:\Users\julia\source\repos\PASCUA_3ITE\PASCUA_LabActivity\PASCUA_LabActivity\bi
 C:\Users\julia\source\repos\PASCUA_3ITE\PASCUA_LabActivity\PASCUA_LabActivity\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
 C:\Users\julia\source\repos\PASCUA_3ITE\PASCUA_LabActivity\PASCUA_LabActivity\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\julia\source\repos\PASCUA_3ITE\PASCUA_LabActivity\PASCUA_LabActivity\obj\Debug\net6.0\PASCUA_LabActivity.csproj.CopyComplete
+C:\Users\julia\source\repos\PASCUA_3ITE\PASCUA_LabActivity\PASCUA_LabActivity\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\julia\source\repos\PASCUA_3ITE\PASCUA_LabActivity\PASCUA_LabActivity\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\julia\source\repos\PASCUA_3ITE\PASCUA_LabActivity\PASCUA_LabActivity\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\julia\source\repos\PASCUA_3ITE\PASCUA_LabActivity\PASCUA_LabActivity\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.UI.dll
+C:\Users\julia\source\repos\PASCUA_3ITE\PASCUA_LabActivity\PASCUA_LabActivity\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Embedded.dll
+C:\Users\julia\source\repos\PASCUA_3ITE\PASCUA_LabActivity\PASCUA_LabActivity\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\julia\source\repos\PASCUA_3ITE\PASCUA_LabActivity\PASCUA_LabActivity\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\julia\source\repos\PASCUA_3ITE\PASCUA_LabActivity\PASCUA_LabActivity\obj\Debug\net6.0\PASCUA_LabActivity.MvcApplicationPartsAssemblyInfo.cs

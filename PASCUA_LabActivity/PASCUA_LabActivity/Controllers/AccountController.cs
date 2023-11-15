@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using PASCUA_LabActivity.Database;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using PASCUA_LabActivity.Models;
 
 namespace PASCUA_LabActivity.Controllers
@@ -24,6 +22,10 @@ namespace PASCUA_LabActivity.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel loginInfo)
         {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
             var result = await _signInManager.PasswordSignInAsync(loginInfo.UserName, loginInfo.Password, loginInfo.RememberMe, false);
             if (result.Succeeded)
             {
@@ -34,6 +36,7 @@ namespace PASCUA_LabActivity.Controllers
                 ModelState.AddModelError("", "Failed to Login");
             }
 
+
             return View(loginInfo);
         }
         public async Task<IActionResult> Logout()
@@ -43,15 +46,15 @@ namespace PASCUA_LabActivity.Controllers
         }
 
         [HttpGet]
-        public IActionResult Register()
+        public IActionResult RegisterView()
         {
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Register(RegisterViewModel userEnteredData)
+        public async Task<IActionResult> RegisterView(RegisterViewModel userEnteredData)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 User newUser = new User();
                 newUser.UserName = userEnteredData.UserName;

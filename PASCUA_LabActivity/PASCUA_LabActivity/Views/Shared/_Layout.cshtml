@@ -29,10 +29,9 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Student" asp-action="Index">Student</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Instructor" asp-action="Index">Instructor</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Instructor" asp-action="Index">Instr----</a>
                         </li>      
-                        <li class="nav-item">
-                            <ul class="navbar-nav">
+               
                                 @if (User.Identity.IsAuthenticated)
                                 {
                                     <li class="nav-item">
@@ -45,11 +44,11 @@
                                         <a class="nav-link " asp-area="" asp-action="Login" asp-controller="Account">Login</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link " asp-area="" asp-action="Register" asp-controller="Account">Register new Account</a>
+                                        <a class="nav-link " asp-area="" asp-action="RegisterView" asp-controller="Account">Register new Account</a>
                                     </li>
                                 }
-                            </ul>
-                        </li>
+                    
+                   
 
                     </ul>
                 </div>

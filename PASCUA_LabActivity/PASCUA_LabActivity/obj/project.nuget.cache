@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "+wg6OUZXIO4ZwmQ8ohrmaxKxRdpIuxMWQsIWZeudLHOh7pZ/te9KkrTvYm9wQTvAzGlvTIqVf4WTzbd/+9wxCg==",
+  "dgSpecHash": "joyd36j8ASCcVlUASLQSthsUqDZLVKT0VJjsr7+0zSgXt8k4vZCz3cTZZ5xnksKxCQoDU+SLOwowux0KQ8rqhg==",
   "success": true,
   "projectFilePath": "C:\\Users\\julia\\source\\repos\\PASCUA_3ITE\\PASCUA_LabActivity\\PASCUA_LabActivity\\PASCUA_LabActivity.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,7 @@
     "C:\\Users\\julia\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.24\\microsoft.aspnetcore.cryptography.internal.6.0.24.nupkg.sha512",
     "C:\\Users\\julia\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.24\\microsoft.aspnetcore.cryptography.keyderivation.6.0.24.nupkg.sha512",
     "C:\\Users\\julia\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\6.0.24\\microsoft.aspnetcore.identity.entityframeworkcore.6.0.24.nupkg.sha512",
+    "C:\\Users\\julia\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\6.0.24\\microsoft.aspnetcore.identity.ui.6.0.24.nupkg.sha512",
     "C:\\Users\\julia\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\julia\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\julia\\.nuget\\packages\\microsoft.data.sqlclient\\5.1.1\\microsoft.data.sqlclient.5.1.1.nupkg.sha512",
@@ -26,6 +27,8 @@
     "C:\\Users\\julia\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\7.0.0\\microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
     "C:\\Users\\julia\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\julia\\.nuget\\packages\\microsoft.extensions.dependencymodel\\7.0.0\\microsoft.extensions.dependencymodel.7.0.0.nupkg.sha512",
+    "C:\\Users\\julia\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\6.0.0\\microsoft.extensions.fileproviders.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\julia\\.nuget\\packages\\microsoft.extensions.fileproviders.embedded\\6.0.24\\microsoft.extensions.fileproviders.embedded.6.0.24.nupkg.sha512",
     "C:\\Users\\julia\\.nuget\\packages\\microsoft.extensions.identity.core\\6.0.24\\microsoft.extensions.identity.core.6.0.24.nupkg.sha512",
     "C:\\Users\\julia\\.nuget\\packages\\microsoft.extensions.identity.stores\\6.0.24\\microsoft.extensions.identity.stores.6.0.24.nupkg.sha512",
     "C:\\Users\\julia\\.nuget\\packages\\microsoft.extensions.logging\\7.0.0\\microsoft.extensions.logging.7.0.0.nupkg.sha512",
